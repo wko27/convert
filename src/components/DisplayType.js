@@ -7,6 +7,19 @@ import TextField from '@mui/material/TextField';
 import Tooltip from '@mui/material/Tooltip';
 import Typography from '@mui/material/Typography';
 
+import * as InputType from '@/logic/inputType';
+
+function getDisplayText(inputType) {
+  switch (inputType) {
+  case InputType.UNKNOWN:
+    return inputType;
+  case InputType.EMPTY:
+    return inputType;
+  default:
+    return `Detected: ${inputType}`;
+  }
+}
+
 export default function DisplayView(props) {
   const {
     inputType,
@@ -23,7 +36,7 @@ export default function DisplayView(props) {
       }}
     >
       <Typography>
-        {inputType}
+        {getDisplayText(inputType)}
       </Typography>
     </Box>
   );

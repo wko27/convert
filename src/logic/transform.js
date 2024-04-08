@@ -11,9 +11,9 @@ import * as TimeUtils from './timeUtils'
 export function transformSingleLine(inputType, value) {
   switch (inputType) {
   case InputType.EPOCH_MILLISECONDS:
-    return TimeUtils.formatDateTime(DateTime.fromMillis(value));
+    return TimeUtils.formatDateTime(DateTime.fromMillis(parseInt(value, 10)));
   case InputType.EPOCH_SECONDS:
-    return TimeUtils.formatDateTime(DateTime.fromSeconds(value));
+    return TimeUtils.formatDateTime(DateTime.fromSeconds(parseInt(value)));
   case InputType.ISO_8601:
     return TimeUtils.formatDateTime(DateTime.fromISO(value));
   case InputType.RFC_2822:

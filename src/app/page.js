@@ -22,6 +22,7 @@ export default function Home() {
 
   const handleInput = (value) => {
     const inputType = guessInputType(value);
+    console.log(`Guessed ${inputType} for '${value}'`);
     setInputType(inputType);
     setOutput(transform(inputType, value));
   };

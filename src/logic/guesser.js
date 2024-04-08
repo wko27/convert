@@ -19,15 +19,14 @@ function isEpochMs(value) {
 // Between 2000 and 20 years from now
 function isEpochSeconds(value) {
   const x = parseInt(value, 10);
+  console.log(x);
   return x > 946684800 && x < MAX_UPPER_EPOCH_MS / 1000;
 }
 
-function isDateTime(value) {
-  console.log(DateTime.fromISO(value));
-  return DateTime.fromISO(value) != null;
-}
-
 function handleDateTime(line) {
+  console.log(`'${line}'`);
+  console.log(isNumeric(line));
+
   if (isNumeric(line)) {
     if (isEpochMs(line)) {
       return InputType.EPOCH_MILLISECONDS;
@@ -99,6 +98,8 @@ export function guessInputType(value) {
     .map(x => x.trim())
     .filter(x => !_.isEmpty(x));
 
+  console.log(lines);
+
   if (lines.length === 0) {
     return InputType.EMPTY;
   }
@@ -106,5 +107,5 @@ export function guessInputType(value) {
   if (lines.length > 1) {
     return guessMultiLine(lines);
   }
-  return guessSingleLine(value);
+  return guessSingleLine(lines[0]);
 }
