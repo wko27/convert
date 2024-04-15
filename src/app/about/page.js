@@ -4,7 +4,6 @@ import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import NextLink from 'next/link';
-import ProTip from '@/components/ProTip';
 import Copyright from '@/components/Copyright';
 
 export default function About() {
@@ -27,7 +26,6 @@ export default function About() {
             Go to the home page
           </Button>
         </Box>
-        <ProTip />
         <Copyright />
       </Box>
     </Container>
